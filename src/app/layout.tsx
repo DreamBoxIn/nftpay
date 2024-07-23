@@ -1,7 +1,7 @@
 "use client";
 
 import { ThirdwebProvider } from "thirdweb/react";
-import { client } from "./consts/client";
+import { client, chains } from "./consts/client";
 import "./globals.css";
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThirdwebProvider client={client}>
+        <ThirdwebProvider client={client} supportedChains={chains}>
           <div
             style={{
               minHeight: "100vh",

@@ -2,7 +2,7 @@ import { getContract } from "thirdweb";
 import { sepolia } from "thirdweb/chains";
 import { client } from "../consts/client";
 import { balanceOf as balanceOfERC721 } from "thirdweb/extensions/erc721";
-import { Address } from "thirdweb"; // Asegúrate de importar el tipo Address correctamente
+import { Address } from "thirdweb/types"; // Asegúrate de importar el tipo Address correctamente
 
 export async function hasAccess(address: Address): Promise<boolean> {
   return await example_hasSomeErc721Tokens(address);

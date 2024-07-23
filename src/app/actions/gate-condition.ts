@@ -1,8 +1,8 @@
 import { getContract } from "thirdweb";
-import { avalancheFuji } from "thirdweb/chains";
+import { sepolia } from "thirdweb/chains";
 import { client } from "../consts/client";
 import { balanceOf as balanceOfERC721 } from "thirdweb/extensions/erc721";
-import { balanceOf as balanceOfERC20 } from "thirdweb/extensions/erc20";
+//import { balanceOf as balanceOfERC20 } from "thirdweb/extensions/erc20";
 
 export async function hasAccess(address: string): Promise<boolean> {
   return await example_hasSomeErc721Tokens(address);
@@ -34,11 +34,11 @@ async function example_hasSomeErc721Tokens(address: string) {
 
   const erc721Contract = getContract({
     // replace with your own NFT contract address
-    address: "0x0896Db00D8987Fba2152aa7c14c4255eBC7354cE",
+    address: "0x3a9Dba1fC8602d924fb1b623EC391fc68840f731",
 
     // replace with the chain that your nft contract was deployed on
     // if that chain isn't included in our default list, use `defineChain`
-    chain: avalancheFuji,
+    chain: sepolia,
 
     client,
   });
@@ -46,30 +46,6 @@ async function example_hasSomeErc721Tokens(address: string) {
   const ownedBalance = await balanceOfERC721({
     contract: erc721Contract,
     owner: address,
-  });
-
-  console.log({ ownedBalance });
-
-  return ownedBalance >= requiredQuantity;
-}
-
-async function example_hasSomeErc20Tokens(address: string) {
-  const requiredQuantity = 10n; // 10 erc20 token
-
-  const erc20Contract = getContract({
-    // replace with your own erc20 contract address
-    address: "0x28B8B9812aA558e94a9B2971529c02BD589FeAfD",
-
-    // replace with the chain that your erc20 contract was deployed on
-    // if that chain isn't included in our default list, use `defineChain`
-    chain: avalancheFuji,
-
-    client,
-  });
-
-  const ownedBalance = await balanceOfERC20({
-    contract: erc20Contract,
-    address,
   });
 
   console.log({ ownedBalance });

@@ -41,17 +41,17 @@ export default async function GatedPage() {
 
 const MustLogin = () => (
   <div className="text-center">
-    You are not logged in. <br />
+    Usted no se ha identificado. <br />
     <a href="/" className="underline">
-      Log in now
+        Inicia sesión ahora
     </a>
   </div>
 );
 
-const reason = "you do not own any NFT"; // replace this with your own reason
+const reason = "no posees ningúna membresía NFT"; // replace this with your own reason
 
 const NotAllowed = () => (
   <div className="text-center">
-    You are logged in but you do not have access to this page because {reason}
+    Has iniciado sesión pero no tienes acceso a esta página porque {reason}
   </div>
 );
